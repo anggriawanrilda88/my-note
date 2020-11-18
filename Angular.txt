@@ -1,0 +1,6 @@
+==index ng-for
+<ul>
+    <li *ngFor="let item of items; let i = index" [attr.data-index]="i">
+        {{item}}
+    </li>
+</ul>

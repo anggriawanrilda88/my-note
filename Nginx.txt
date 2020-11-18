@@ -1,0 +1,17 @@
+==restart nginx windows
+@ECHO OFF
+cd /nginx
+taskkill /f /IM nginx.exe
+start nginx
+EXIT
+
+==nginx proxy with hot reload to angular
+location / {
+    proxy_pass http://192.168.56.223:4200;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_http_version 1.1;
+    proxy_cache_bypass $http_upgrade;
+}
+
